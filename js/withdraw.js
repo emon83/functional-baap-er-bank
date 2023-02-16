@@ -12,8 +12,18 @@ step-07: set balance total using setTextElementValueById function
 document.getElementById('btn__withdraw').addEventListener('click', function () {
     const newWithdrawAmount = getInputFieldValueById('withdraw__field');
 
+    if (isNaN(newWithdrawAmount)) {
+        alert('Please provide a valid number');
+        return;
+    }
+
     const previousWithdrawTotal = getTextElementValueById('withdraw__total');
     const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+
+    if (newWithdrawAmount > previousWithdrawTotal) {
+        alert('There is not so much money in the bank !!!')
+        return;
+    }
 
     setTextElementValueById('withdraw__total', newWithdrawTotal);
 

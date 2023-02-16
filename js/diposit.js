@@ -10,6 +10,11 @@ step-07: set value in balance total
 
 document.getElementById('btn__deposit').addEventListener('click', function () {
    const newDepositAmount = getInputFieldValueById('deposit__field');
+   
+   if (isNaN(newDepositAmount)) {
+    alert('Please provide a valid number');
+    return;
+}
   const previousDepositTotal = getTextElementValueById('deposit__total');
   const newDepositTotal = previousDepositTotal + newDepositAmount;
   setTextElementValueById('deposit__total', newDepositTotal);
